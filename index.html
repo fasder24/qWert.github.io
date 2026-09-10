@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Перенаправление...</title>
+  <script>
+    // Проверяем если пользователь уже авторизован
+    const user = sessionStorage.getItem('current-user') || localStorage.getItem('current-user');
+    if (user) {
+      const userData = JSON.parse(user);
+      if (userData.isAdmin) {
+        window.location.href = 'admin.html';
+      } else {
+        window.location.href = 'app.html';
+      }
+    } else {
+      window.location.href = 'login.html';
+    }
+  </script>
+</head>
+<body>
+  <p>Загружаем приложение...</p>
+</body>
+</html>
